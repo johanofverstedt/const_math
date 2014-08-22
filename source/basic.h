@@ -67,7 +67,7 @@ namespace const_math {
 		return is_even(n) ? n : (n-N(1));
 	}
 
-	namespace pow_n_detail }
+	namespace pow_n_detail {
 	template <typename T, typename N>
 		constexpr const T pow_n_pos(const T x, const N n) {
 			return (n == 1)
