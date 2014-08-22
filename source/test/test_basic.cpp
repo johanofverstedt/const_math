@@ -1,10 +1,6 @@
 
 #include "gtest/gtest.h"
 
-#include <array>
-#include <cstdint>
-#include <cmath>
-
 #include "../../const_math.h"
 
 TEST(ConstMathBasic, NormalUse) {
