@@ -48,6 +48,40 @@ namespace const_math {
 	constexpr double pi_mult(double x) {
 		return x * PI;
 	}
+
+	template <typename N>
+	constexpr bool is_even(N n) {
+		return (n & N(1)) == N(0);
+	}
+	template <typename N>
+	constexpr bool is_odd(N n) {
+		return (n & N(1)) == N(1);
+	}
+
+	template <typename N>
+	constexpr N make_even_up(N n) {
+		return is_even(n) ? n : (n+N(1));
+	}
+	template <typename N>
+	constexpr N make_even_down(N n) {
+		return is_even(n) ? n : (n-N(1));
+	}
+
+	namespace pow_n_detail }
+	template <typename T, typename N>
+		constexpr const T pow_n_pos(const T x, const N n) {
+			return (n == 1)
+				? x
+				: (is_even(n) ? pow_n_pos(x*x, n/N(2) : (x * pow_n_pos(x*x, n/N(2)));
+		}
+	}
+
+	template <typename T, typename N>
+	constexpr const T pow_n(const T x, const N n) {
+		return (n == 0)
+			? T(1)
+			: ((n < N(1) ? (T(1) / pow_n_detail::pow_n_pos(x, -n)) : pow_n_detail::pow_n_pow(x, n)); 
+	}	
 }
 
 #endif
