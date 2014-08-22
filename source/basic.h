@@ -37,6 +37,11 @@ namespace const_math {
 	}
 
 	template <typename N>
+	constexpr double factorial_double(N n, double accum) {
+		return (n == N(0)) ? accum : (factorial_double(n - N(1), accum * double(n)));
+	}
+
+	template <typename N>
 	constexpr N factorial(N n) {
 		return (n == N(0)) ? N(1) : (n * factorial(n - N(1)));
 	}
