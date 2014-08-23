@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="gtest">
+      <UniqueIdentifier>{a8936cbc-2c5b-4ac0-a955-8e18cabdac42}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\..\libs\gtest-1.7.0\fused-src\gtest\gtest_main.cc">
+      <Filter>gtest</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\libs\gtest-1.7.0\fused-src\gtest\gtest-all.cc">
+      <Filter>gtest</Filter>
+    </ClCompile>
+    <ClCompile Include="..\source\test\test_approx.cpp" />
+    <ClCompile Include="..\source\test\test_basic.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\..\libs\gtest-1.7.0\fused-src\gtest\gtest.h">
+      <Filter>gtest</Filter>
+    </ClInclude>
+    <ClInclude Include="..\source\approx.h" />
+    <ClInclude Include="..\source\basic.h" />
+    <ClInclude Include="..\source\constants.h" />
+  </ItemGroup>
+</Project>

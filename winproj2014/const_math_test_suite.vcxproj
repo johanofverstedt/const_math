@@ -46,7 +46,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
-    <PlatformToolset>CTP_Nov2013</PlatformToolset>
+    <PlatformToolset>v140</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
@@ -150,6 +150,9 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\libs\gtest-1.7.0\fused-src\gtest\gtest.h" />
+    <ClInclude Include="..\source\approx.h" />
+    <ClInclude Include="..\source\basic.h" />
+    <ClInclude Include="..\source\constants.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
