@@ -14,10 +14,12 @@ TEST(ConstMathApprox, Helpers) {
 
 TEST(ConstMathApprox, SquareRoot) {
 
-	EXPECT_NEAR(sqrt(0.5), const_math::square_root(0.5), 0.0000000001);
-	EXPECT_NEAR(sqrt(10.0), const_math::square_root(10.0), 0.0000000001);
-	EXPECT_NEAR(sqrt(1000.0), const_math::square_root(1000.0), 0.0000000001);
-	EXPECT_NEAR(sqrt(30000.0), const_math::square_root(30000.0), 0.0000000001);
+	const double tolerance = 0.000000000001;
+
+	EXPECT_NEAR(sqrt(0.5), const_math::square_root(0.5), tolerance);
+	EXPECT_NEAR(sqrt(10.0), const_math::square_root(10.0), tolerance);
+	EXPECT_NEAR(sqrt(1000.0), const_math::square_root(1000.0), tolerance);
+	EXPECT_NEAR(sqrt(30000.0), const_math::square_root(30000.0), tolerance);
 }
 
 TEST(ConstMathApprox, Sin) {
