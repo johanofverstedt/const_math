@@ -4,6 +4,7 @@
 
 #include "source/basic.h"
 #include "source/constants.h"
+#include "source/algorithms.h"
 #include "source/approx.h"
 
 #endif

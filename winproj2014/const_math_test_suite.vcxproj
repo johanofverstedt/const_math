@@ -145,11 +145,13 @@
   <ItemGroup>
     <ClCompile Include="..\..\..\libs\gtest-1.7.0\fused-src\gtest\gtest-all.cc" />
     <ClCompile Include="..\..\..\libs\gtest-1.7.0\fused-src\gtest\gtest_main.cc" />
+    <ClCompile Include="..\source\test\test_algorithms.cpp" />
     <ClCompile Include="..\source\test\test_approx.cpp" />
     <ClCompile Include="..\source\test\test_basic.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\libs\gtest-1.7.0\fused-src\gtest\gtest.h" />
+    <ClInclude Include="..\source\algorithms.h" />
     <ClInclude Include="..\source\approx.h" />
     <ClInclude Include="..\source\basic.h" />
     <ClInclude Include="..\source\constants.h" />

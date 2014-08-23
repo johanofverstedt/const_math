@@ -3,6 +3,7 @@
 #define CONST_MATH_APPROX_GUARD
 
 #include "basic.h"
+#include "algorithms.h"
 
 namespace const_math {
 	constexpr bool is_near_rel(const double x, const double y, const double tolerance = 0.00000000001) {
@@ -38,7 +39,7 @@ namespace const_math {
 	}
 
 	constexpr const double trig_term(const double x, std::size_t n) {
-		return pow_n(x, n)/factorial_double(n, 1.0);
+		return power_n(x, n)/factorial_double(n, 1.0);
 	}
 	constexpr const double sin_inner(const double x, std::size_t terms, const double pos_accum, const double neg_accum) {
 		return (terms == 1)

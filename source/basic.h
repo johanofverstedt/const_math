@@ -86,26 +86,6 @@ namespace const_math {
 	constexpr N make_even_down(N n) {
 		return is_even(n) ? n : (n-N(1));
 	}
-
-	//Russian Peasant Algorithm for computing multiplicative powers with
-	//integer exponent: x^y => pow_n(x, n), where x may be double buy n
-	//must be integer typed.
-
-	namespace pow_n_detail {
-		template <typename T, typename N>
-		constexpr const T pow_n_pos(const T x, const N n) {
-			return (n == 1)
-				? x
-				: (is_even(n) ? pow_n_pos(x*x, n/N(2)) : (x * pow_n_pos(x*x, n/N(2))));
-		}
-	}
-
-	template <typename T, typename N>
-	constexpr const T pow_n(const T x, const N n) {
-		return (n == 0)
-			? T(1)
-			: (n < N(1)) ? (T(1) / pow_n_detail::pow_n_pos(x, abs_value(n))) : pow_n_detail::pow_n_pos(x, n); 
-	}	
 }
 
 #endif
