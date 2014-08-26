@@ -5,6 +5,17 @@
 
 #include "../../const_math.h"
 
+TEST(ConstMathAlgorithms, Sum) {
+	EXPECT_EQ(12, const_math::add(1, -2, 6, 7));
+	//const_math::sum();
+	//const_math::sum(1, 2.0);
+//	EXPECT_EQ(12, const_math::sum(1, -2, 6, 7));
+	//EXPECT_NEAR(2.0, const_math::sum(-1.0, 8.0, -5.0), 0.00000001);
+	
+	EXPECT_EQ(24, const_math::product(1, -2, 3, -4));
+
+}
+
 TEST(ConstMathAlgorithms, PowerN) {
 
 	EXPECT_EQ(256, const_math::power_n(2, 8));
