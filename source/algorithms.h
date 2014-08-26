@@ -24,7 +24,7 @@ namespace const_math {
 
 	template<typename Op, typename T, typename... P>
 	struct TypeOfReduction<Op, T,P...> {
-    	typedef decltype(Op()(T(), typename TypeOfSum<P...>::type()))        type;
+    	typedef decltype(Op()(T(), typename TypeOfReduction<Op, P...>::type()))        type;
 	};
 
 /*
@@ -45,13 +45,13 @@ namespace const_math {
 	}*/
 
 	template <typename Op, typename T>
-	T
+	constexpr T
 	fold_left(Op op, T head) {
 		return head;
 	}
 
 	template <typename Op, typename T, typename ...Args>
-	typename TypeOfReduction<Op, T, Args...>::type
+	constexpr typename TypeOfReduction<Op, T, Args...>::type
 	fold_left(Op op, T head, Args... tail) {
 		return op(head, fold_left(op, tail...));
 	}
@@ -61,17 +61,50 @@ namespace const_math {
 
 		template <typename T, typename U>
 		
-		typename std::common_type<T, U>::type operator()(const T& x, const U& y) {
+		constexpr
+		typename std::common_type<T, U>::type operator()(const T& x, const U& y) const {
 			return x + y;
 		}
 	};
 
+	struct mult_const_op {
+		constexpr mult_const_op() {}
+
+		template <typename T, typename U>
+		
+		constexpr
+		typename std::common_type<T, U>::type operator()(const T& x, const U& y) const {
+			return x * y;
+		}
+	};
+
+	struct max_const_op {
+		constexpr max_const_op() {}
+
+		template <typename T, typename U>
+		
+		constexpr
+		typename std::common_type<T, U>::type operator()(const T& x, const U& y) const {
+			return max2(x, y);
+		}
+	};
+
 	template <typename T, typename ...Args>
-	auto add(T head, Args... tail) -> typename decltype(fold_left(add_const_op(), head, tail...)) {
+	constexpr auto sum(T head, Args... tail) -> decltype(fold_left(add_const_op(), head, tail...)) {
 		return fold_left(add_const_op(), head, tail...);
 	}
 
+	template <typename T, typename ...Args>
+	constexpr auto product(T head, Args... tail) -> decltype(fold_left(add_const_op(), head, tail...)) {
+		return fold_left(mult_const_op(), head, tail...);
+	}
 
+	template <typename T, typename ...Args>
+	constexpr auto max_n(T head, Args... tail) -> decltype(fold_left(add_const_op(), head, tail...)) {
+		return fold_left(max_const_op(), head, tail...);
+	}
+
+/*
 	constexpr int product() {
 		return 1;
 	}
@@ -79,7 +112,7 @@ namespace const_math {
 	constexpr T product(T x, const A... tail) {
 		return x * product(tail...);
 	}
-
+*/
 	//
 	// power_n
 	//

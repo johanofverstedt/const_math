@@ -6,6 +6,9 @@
 #include "../../const_math.h"
 
 TEST(ConstMathAlgorithms, Sum) {
+	EXPECT_NEAR(12.5, const_math::add(1, -2, 6, 7, 0.5), 0.00001);
+	EXPECT_NEAR(12.5, const_math::add(0.5, 1, -2, 6, 7), 0.00001);
+	EXPECT_NEAR(12.5, const_math::add(1, -2, 0.5, 6, 7), 0.00001);
 	EXPECT_EQ(12, const_math::add(1, -2, 6, 7));
 	//const_math::sum();
 	//const_math::sum(1, 2.0);
